@@ -1,0 +1,30 @@
+{
+	"diagnostics":{
+		"filter_id":[
+			"com.e1c.v8codestyle.bsl:new-color",
+			"com.e1c.v8codestyle.bsl:common-module-named-self-reference",
+			"com.e1c.v8codestyle.bsl:manager-module-named-self-reference",
+			"com.e1c.v8codestyle.bsl:bsl-variable-name-invalid",
+			"com.e1c.v8codestyle.bsl:structure-consructor-too-many-keys",
+			"com.e1c.v8codestyle.bsl:module-structure-form-event-regions",
+			"com.e1c.v8codestyle.bsl:module-structure-method-in-regions",
+			"com.e1c.v8codestyle.md:md-standard-attribute-synonym-empty",
+			"com.e1c.v8codestyle.md:md-list-object-presentation",
+			"com.e1c.g5.v8.dt.md.check:configuration-standalone-content",
+			"com.e1c.v8codestyle.bsl:method-optional-parameter-before-required",
+			"com.e1c.v8codestyle.bsl:module-structure-var-in-region",
+			"com.e1c.v8codestyle.bsl:doc-comment-export-function-return-section",
+			"com.e1c.v8codestyle.bsl:export-procedure-missing-comment",
+			"com.e1c.v8codestyle.bsl:doc-comment-field-type",
+			"com.e1c.v8codestyle.bsl:doc-comment-field-type-strict",
+			"com.e1c.v8codestyle.bsl:doc-comment-parameter-section",
+			"com.e1c.v8codestyle.bsl:form-self-reference",
+			"com.e1c.v8codestyle.bsl:module-structure-top-region",
+			"com.e1c.v8codestyle.bsl:method-too-many-params",
+			"com.e1c.v8codestyle.bsl:constructor-function-return-section",
+			"com.e1c.v8codestyle.bsl:doc-comment-type",
+			"com.e1c.v8codestyle.bsl:doc-comment-collection-item-type",
+			"com.e1c.v8codestyle.bsl:doc-comment-field-in-description-suggestion"
+		]
+	}
+}

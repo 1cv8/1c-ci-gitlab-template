@@ -1,0 +1,70 @@
+default:
+  interruptible: true
+
+before_script:
+    - $LINE = '[Console]::OutputEncoding = [Text.Encoding]::Utf8'
+    - Invoke-Expression $LINE
+    - $LINE = '[Console]::InputEncoding = [Text.Encoding]::Utf8'
+    - Invoke-Expression $LINE
+    - chcp
+    - Write-Host "CI_PROJECT_TITLE - $CI_PROJECT_TITLE"
+    - Write-Host "CI_PROJECT_NAME - $CI_PROJECT_NAME"
+    - Write-Host "CI_COMMIT_REF_NAME - $CI_COMMIT_REF_NAME"
+    - Write-Host "CI_PIPELINE_SOURCE - $CI_PIPELINE_SOURCE"
+    - Write-Host "CI_PIPELINE_ID - $CI_PIPELINE_ID"
+    - Write-Host "CI_PROJECT_DIR - $CI_PROJECT_DIR"
+
+stages:
+    - EDT_import
+    - EDT_validate
+    - EDT_export2Sonar
+    - SonarQube
+
+EDT_import:
+  stage: EDT_import
+  interruptible: true
+  except:
+    - schedules
+  tags:
+    - OneS
+  script: 
+    - ring edt workspace import --project %CI_PROJECT_DIR%/.edt/cf --configuration-files %CI_PROJECT_DIR%/src/cf --workspace-location %CI_PROJECT_DIR%/.edt/workspace
+
+EDT_validate:
+  stage: EDT_validate
+  interruptible: false
+  except:
+    - schedules
+  variables:
+    GIT_STRATEGY: none
+  tags:
+    - OneS
+  script: 
+    - ring edt workspace validate --project-list %CI_PROJECT_DIR%/.edt/cf --workspace-location %CI_PROJECT_DIR%/.edt/workspace --file %CI_PROJECT_DIR%/.edt/result.out
+
+EDT_export2Sonar:
+  stage: EDT_export2Sonar
+  interruptible: true
+  except:
+    - schedules
+  variables:
+    GIT_STRATEGY: none
+  tags:
+    - OneS
+  script: 
+    - edt-ripper parse -c ./.edt-ripper.json ./.edt/result.out %CI_PROJECT_DIR%/src cf ./.edt/result.json
+    #- edt-ripper publish ./.edt/result.json
+
+SonarQube:
+  stage: SonarQube
+  interruptible: true
+  except:
+    - schedules
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  tags:
+    - OneS
+  script: 
+    - sonar-scanner -D sonar.token=sqa_xxx -D sonar.projectVersion=$env:CI_JOB_ID
+

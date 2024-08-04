@@ -1,0 +1,78 @@
+{
+    "$schema": "https://1c-syntax.github.io/bsl-language-server/configuration/schema.json",
+    "diagnostics": {
+        "skipSupport": "withSupportLocked",
+        "parameters": {
+            "NestedFunctionInParameters":false,
+            "FunctionNameStartsWithGet":false,
+            "UsingLikeInQuery":false,
+            "UseSystemInformation":false,
+            "TernaryOperatorUsage":false,
+            "DeprecatedCurrentDate":false,
+            "FunctionOutParameter":false,
+            "CanonicalSpellingKeywords":false,
+            "CodeOutOfRegion":false,
+            "MagicNumber":false,
+            "TooManyReturns":false,
+            "AssignAliasFieldsInQuery":false,
+            "NonStandardRegion":false,
+            "NonExportMethodsInApiRegion":false,
+            "ScheduledJobHandler":false,
+            "InternetAccess":false,
+            "CommonModuleMissingAPI":false,
+            "CommonModuleInvalidType":false,
+            "FieldsFromJoinsWithoutIsNull":false,
+            "MissingReturnedValueDescription":false,
+            "MissingParameterDescription":false,
+            "MissingTempStorageDeletion":false,
+            "DuplicateStringLiteral":false,
+            "ConsecutiveEmptyLines":false,
+            "CodeAfterAsyncCall":false,
+            "SpaceAtStartComment":false,
+            "MissingSpace":false,
+            "LatinAndCyrillicSymbolInWord":false,
+            "CommentedCode":false,
+            "PublicMethodsDescription":false,
+            "DenyIncompleteValues":false,
+            "RedundantAccessToObject":false,
+            "MissingVariablesDescription":false,
+            "FileSystemAccess":false,
+			"ExtraCommas": false,
+            "LineLength": {
+                "maxLineLength": 280,
+                "checkMethodDescription": true
+            },
+            "CognitiveComplexity": {
+                "complexityThreshold": 50,
+                "checkModuleBody": true
+            },
+            "CyclomaticComplexity": {
+                "complexityThreshold": 65,
+                "checkModuleBody": true
+            },
+            "IfConditionComplexity": {
+                "maxIfConditionComplexity": 9
+            },
+            "NumberOfParams": {
+                "maxParamsCount": 18
+            },
+            "NumberOfOptionalParams": {
+                "maxOptionalParamsCount": 8
+            },
+            "MethodSize": {
+                "maxMethodSize": 800
+            },
+            "NestedStatements": {
+                "maxAllowedLevel": 10
+            },
+            "Typo": {
+                "minWordLength": 4,
+                "userWordsToIgnore": "мультиязычность,сериализации,регл,возр,малоценки,отложенно,предпросмотра,уидов,нстр,штрихкоды"
+            },
+            "BadWords": {
+                "badWords": "сцука,афтар,жжот,йаду",
+                "findInComments": true
+            }
+        }
+    }
+}

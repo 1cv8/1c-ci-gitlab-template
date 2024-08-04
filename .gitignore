@@ -1,0 +1,10 @@
+.env
+build/
+allure-report/
+
+build
+out
+.scannerwork
+.idea
+
+.edt
